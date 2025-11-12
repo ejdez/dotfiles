@@ -1,0 +1,80 @@
+set number
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set expandtab
+set scrolloff=2
+set tabstop=2
+set shiftwidth=2
+set textwidth=100
+
+set startnormalmode
+set autoindent
+set cursorline
+set clipboard=unnamed
+
+"Map leader to comma
+let mapleader=","
+"nnoremap <Leader>, ,
+
+nmap <c-l> :nohlsearch<cr>
+nnoremap <esc> :noh<cr><esc>
+vnoremap <esc> :noh<cr><esc>
+nnoremap <c-c> :noh<cr><c-c>
+vnoremap <c-c> :noh<cr><c-c>
+
+nnoremap gt <c-w>gt
+nnoremap gT <c-w>gT
+
+"Insert empty line above current line
+nnoremap <m-o> m`O<esc>``
+
+"Paste from yank register
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>p "0p
+vnoremap <leader>P "0P
+
+"Move to the next capital letter"
+nnoremap ]U /[A-Z]<return>:noh<cr>
+nnoremap [U ?[A-Z]<return>:noh<cr>
+
+eclipseaction NextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
+nmap ]] :NextMember<cr>
+
+eclipseaction PreviousMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
+nmap [[ :PreviousMember<cr>
+
+eclipseuiaction QuickSwitchEditor org.eclipse.ui.window.openEditorDropDown
+nmap gb :QuickSwitchEditor<cr>
+
+eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
+vmap <Leader>q :QuickFormat<cr>
+
+eclipseuiaction QuickTypeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+nmap <Leader>t :QuickTypeHierarchy<cr>
+
+eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
+nmap <Leader>o :ShowOutline<cr>
+
+"Sneak
+nmap s <Plug>(sneak_s)
+nmap S <Plug>(sneak_S)
+nmap ; <Plug>(sneak-next)
+nmap , <Plug>(sneak-prev)
+vmap s <Plug>(sneak_s)
+vmap Z <Plug>(sneak_S)
+vmap ; <Plug>(sneak-next)
+vmap , <Plug>(sneak-prev)
+nmap f <Plug>(sneak_f)
+nmap F <Plug>(sneak_F)
+nmap t <Plug>(sneak_t)
+nmap T <Plug>(sneak_T)
+vmap f <Plug>(sneak_f)
+vmap F <Plug>(sneak_F)
+vmap t <Plug>(sneak_t)
+vmap T <Plug>(sneak_T)
+omap z <Plug>(sneak_s)
+omap Z <Plug>(sneak_S)
+
