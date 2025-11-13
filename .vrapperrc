@@ -18,17 +18,23 @@ set clipboard=unnamed
 let mapleader=","
 "nnoremap <Leader>, ,
 
-nmap <c-l> :nohlsearch<cr>
-nnoremap <esc> :noh<cr><esc>
-vnoremap <esc> :noh<cr><esc>
-nnoremap <c-c> :noh<cr><c-c>
-vnoremap <c-c> :noh<cr><c-c>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>x :x<CR>
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :b<Space>
 
-nnoremap gt <c-w>gt
-nnoremap gT <c-w>gT
+nnoremap <Leader>s :%s///g<Left><Left><Left>
+vnoremap <Leader>s :s///g<Left><Left><Left>
+
+nmap <C-l> :nohlsearch<CR>
+
+nnoremap gt <C-w>gt
+nnoremap gT <C-w>gT
 
 "Insert empty line above current line
-nnoremap <m-o> m`O<esc>``
+"nnoremap <M-o> m`O<Esc>``
+nnoremap <Leader>O m`O<Esc>``
 
 "Paste from yank register
 nnoremap <leader>p "0p
@@ -36,27 +42,31 @@ nnoremap <leader>P "0P
 vnoremap <leader>p "0p
 vnoremap <leader>P "0P
 
+"Don't store the deleted text in any register
+nnoremap <Leader>d "_d             
+vnoremap <Leader>d "_d             
+
 "Move to the next capital letter"
-nnoremap ]U /[A-Z]<return>:noh<cr>
-nnoremap [U ?[A-Z]<return>:noh<cr>
+nnoremap ]U /[A-Z]<return>:noh<CR>
+nnoremap [U ?[A-Z]<return>:noh<CR>
 
 eclipseaction NextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
-nmap ]] :NextMember<cr>
+nmap ]] :NextMember<CR>
 
 eclipseaction PreviousMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
-nmap [[ :PreviousMember<cr>
+nmap [[ :PreviousMember<CR>
 
 eclipseuiaction QuickSwitchEditor org.eclipse.ui.window.openEditorDropDown
-nmap gb :QuickSwitchEditor<cr>
+nmap gb :QuickSwitchEditor<CR>
 
 eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
-vmap <Leader>q :QuickFormat<cr>
+vmap <Leader>q :QuickFormat<CR>
 
 eclipseuiaction QuickTypeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-nmap <Leader>t :QuickTypeHierarchy<cr>
+nmap <Leader>t :QuickTypeHierarchy<CR>
 
 eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
-nmap <Leader>o :ShowOutline<cr>
+nmap <Leader>o :ShowOutline<CR>
 
 "Sneak
 nmap s <Plug>(sneak_s)
