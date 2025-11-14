@@ -3,7 +3,11 @@ HISTSIZE=200
 HISTCONTROL=ignoredups
 
 #PATH=$PATH:.
+
 CDPATH=~/works/data:~/works/repo:~/works/opt
+
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -12,9 +16,6 @@ alias .2="cd ../.."
 alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
-
-export VISUAL=vim
-export EDITOR=$VISUAL
 
 alias ll='ls -lah'
 alias ltr='ls -ltrh'
@@ -37,7 +38,7 @@ alias sudothat='eval "sudo $(fc -ln -1)"'
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # https://unix.stackexchange.com/questions/20396/make-cd-automatically-ls
-cdls() { cd "$@" && ls -a; }
+cdl() { cd "$@" && ls -a; }
 
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
 env=~/.ssh/agent.env

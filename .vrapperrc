@@ -14,7 +14,7 @@ set autoindent
 set cursorline
 set clipboard=unnamed
 
-"Map leader to comma
+" Map leader to comma
 let mapleader=","
 "nnoremap <Leader>, ,
 
@@ -32,21 +32,21 @@ nmap <C-l> :nohlsearch<CR>
 nnoremap gt <C-w>gt
 nnoremap gT <C-w>gT
 
-"Insert empty line above current line
+" Insert empty line above current line
 "nnoremap <M-o> m`O<Esc>``
 nnoremap <Leader>O m`O<Esc>``
 
-"Paste from yank register
+" Paste from yank register
 nnoremap <leader>p "0p
 nnoremap <leader>P "0P
 vnoremap <leader>p "0p
 vnoremap <leader>P "0P
 
-"Don't store the deleted text in any register
+" Don't store the deleted text in any register
 nnoremap <Leader>d "_d             
 vnoremap <Leader>d "_d             
 
-"Move to the next capital letter"
+" Move to the next capital letter"
 nnoremap ]U /[A-Z]<return>:noh<CR>
 nnoremap [U ?[A-Z]<return>:noh<CR>
 
@@ -68,7 +68,7 @@ nmap <Leader>t :QuickTypeHierarchy<CR>
 eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
 nmap <Leader>o :ShowOutline<CR>
 
-"Sneak
+" Sneak
 nmap s <Plug>(sneak_s)
 nmap S <Plug>(sneak_S)
 nmap ; <Plug>(sneak-next)
