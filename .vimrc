@@ -20,6 +20,8 @@ set fileformat=dos
 set shortmess-=S "show search count
 set cinoptions+=j1 "indent java anonymous classes
 
+autocmd FileType help noremap <buffer> q :q<cr>
+
 let mapleader=","
 "nnoremap <Leader>, ,
 
