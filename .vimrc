@@ -42,12 +42,15 @@ nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>r :source %<CR>
 nnoremap <Leader>h :help<Space>
 
-nnoremap <Leader>s :%s///g<Left><Left><Left>
+nnoremap <Leader>s :s///g<Left><Left><Left>
 vnoremap <Leader>s :s///g<Left><Left><Left>
+"nnoremap <Leader>sr :s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+"vnoremap <Leader>sr :s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 
 " Insert empty line above current line
-"nnoremap <M-o> m`O<Esc>``
 nnoremap <Leader>O m`O<Esc>``
+" and below current line
+nnoremap <M-o> m`o<Esc>`` " Not working, why?
 
 " Paste from yank register
 nnoremap <Leader>p "0p
@@ -122,6 +125,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-surround')
   call minpac#add('justinmk/vim-sneak')
   call minpac#add('tommcdo/vim-exchange')
+  call minpac#add('justinmk/vim-ipmotion')
   call minpac#add('bkad/CamelCaseMotion')
   call minpac#add('Chromosore/vim-inkpot-refilled')
 endfunction

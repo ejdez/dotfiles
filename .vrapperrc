@@ -1,4 +1,4 @@
-set gvimpath=/Users/edwhd/scoop/apps/vim/current/gvim
+set gvimpath=/Users/eduardo.hernandez/scoop/apps/vim/current/gvim
 set number
 set ignorecase
 set smartcase
@@ -29,7 +29,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
 nnoremap <Leader>l :ls<CR>
 
-nnoremap <Leader>s :%s///g<Left><Left><Left>
+nnoremap <Leader>s :s///g<Left><Left><Left>
 vnoremap <Leader>s :s///g<Left><Left><Left>
 
 nmap <C-l> :nohlsearch<CR>
@@ -38,8 +38,10 @@ nnoremap gt <C-w>gt
 nnoremap gT <C-w>gT
 
 " Insert empty line above current line
-"nnoremap <M-o> m`O<Esc>``
-nnoremap <Leader>O m`O<Esc>``
+"nnoremap <Leader>O m`O<Esc>``
+nnoremap <Leader>O O<Esc>j
+" and below current line
+nnoremap <M-o> m`o<Esc>``
 
 " Paste from yank register
 nnoremap <Leader>p "0p
@@ -73,22 +75,26 @@ nnoremap ]{ /\{<CR>:noh<CR>
 "onoremap ]{ /\{<CR>:noh<CR>
 
 eclipseaction NextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
-nmap ]] :NextMember<CR>
+nnoremap ]] :NextMember<CR>
 
 eclipseaction PreviousMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
-nmap [[ :PreviousMember<CR>
+nnoremap [[ :PreviousMember<CR>
 
 eclipseuiaction QuickSwitchEditor org.eclipse.ui.window.openEditorDropDown
-nmap <Leader>b :QuickSwitchEditor<CR>
+nnoremap gb :QuickSwitchEditor<CR>
 
-eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
-vmap <Leader>q :QuickFormat<CR>
+"eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
+"vmap <Leader>q :QuickFormat<CR>
+nnoremap <Leader>q :fm<CR>
+vnoremap <Leader>q :fm<CR>
 
 eclipseuiaction QuickTypeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-nmap <Leader>t :QuickTypeHierarchy<CR>
+nnoremap <Leader>t :QuickTypeHierarchy<CR>
 
 eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
-nmap <Leader>o :ShowOutline<CR>
+nnoremap <Leader>o :ShowOutline<CR>
+
+"nnoremap <Leader>rn :eclipsecmd org.eclipse.jdt.ui.edit.text.java.rename.element<CR>
 
 " Sneak
 nmap s <Plug>(sneak_s)
