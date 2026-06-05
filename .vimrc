@@ -29,12 +29,12 @@ autocmd FileType help noremap <buffer> q :q<cr>
 " Line wrapping behavior when in diff mode
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
-" Map leader to comma
-let mapleader=","
-nnoremap <Leader>, ,
-nnoremap \ ,
-xnoremap \ ,
-onoremap \ ,
+" Map leader to Space
+let mapleader=" "
+"nnoremap <Leader>, ,
+"nnoremap \ ,
+"xnoremap \ ,
+"onoremap \ ,
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
@@ -62,6 +62,9 @@ vnoremap <Leader>P "0P
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
 
+" Makes visual paste replace the selection without overwriting the unnamed register
+xnoremap p "_dP
+
 nnoremap * *N
 nnoremap # #N
 
@@ -87,10 +90,10 @@ let g:camelcasemotion_key = '<Leader>'
 
 " https://github.com/justinmk/vim-sneak
 "let g:sneak#label = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
+"map f <Plug>Sneak_f
+"map F <Plug>Sneak_F
+"map t <Plug>Sneak_t
+"map T <Plug>Sneak_T
 "map <Leader>, <Plug>Sneak_,
 
 " Cursor shape
@@ -101,6 +104,7 @@ if !has('gui_running')
   let &t_ti .= "\e[1 q" " Startup: block
   let &t_te .= "\e[0 q" " Exit: restore default
 else 
+  set guifont=Consolas:h14
   set guicursor=n-v-c:block-blinkon500-blinkoff500,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20-blinkon500-blinkoff500
 
   set guioptions-=T

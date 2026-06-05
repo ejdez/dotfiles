@@ -16,18 +16,18 @@ set autoindent
 set cursorline
 set clipboard=unnamed
 
-" Map leader to comma
-let mapleader=","
-nnoremap <Leader>, ,
-nnoremap \ ,
-xnoremap \ ,
-onoremap \ ,
+" Map leader to Space
+let mapleader="<Space>"
+"nnoremap <Leader>, ,
+"nnoremap \ ,
+"xnoremap \ ,
+"onoremap \ ,
 
 :subwordmappings
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
-nnoremap <Leader>l :ls<CR>
+"nnoremap <Leader>l :ls<CR>
 
 nnoremap <Leader>s :s///g<Left><Left><Left>
 vnoremap <Leader>s :s///g<Left><Left><Left>
@@ -38,8 +38,8 @@ nnoremap gt <C-w>gt
 nnoremap gT <C-w>gT
 
 " Insert empty line above current line
-"nnoremap <Leader>O m`O<Esc>``
-nnoremap <Leader>O O<Esc>j
+"nnoremap <Leader>O O<Esc>j
+nnoremap <Leader>O m`O<Esc>``
 " and below current line
 nnoremap <M-o> m`o<Esc>``
 
@@ -52,6 +52,9 @@ vnoremap <Leader>P "0P
 " Don't store the deleted text in any register
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
+
+" Makes visual paste replace the selection without overwriting the unnamed register
+xnoremap p "_dP
 
 nnoremap * *N
 nnoremap # #N
@@ -81,7 +84,8 @@ eclipseaction PreviousMember org.eclipse.jdt.ui.edit.text.java.goto.previous.mem
 nnoremap [[ :PreviousMember<CR>
 
 eclipseuiaction QuickSwitchEditor org.eclipse.ui.window.openEditorDropDown
-nnoremap gb :QuickSwitchEditor<CR>
+"nnoremap gb :QuickSwitchEditor<CR>
+nnoremap <Leader>l :QuickSwitchEditor<CR>
 
 "eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
 "vmap <Leader>q :QuickFormat<CR>
@@ -100,11 +104,13 @@ nnoremap <Leader>o :ShowOutline<CR>
 nmap s <Plug>(sneak_s)
 nmap S <Plug>(sneak_S)
 nmap ; <Plug>(sneak-next)
-nmap \ <Plug>(sneak-prev)
+"nmap \ <Plug>(sneak-prev)
+nmap , <Plug>(sneak-prev)
 vmap s <Plug>(sneak_s)
 vmap Z <Plug>(sneak_S)
 vmap ; <Plug>(sneak-next)
-vmap \ <Plug>(sneak-prev)
+"vmap \ <Plug>(sneak-prev)
+vmap , <Plug>(sneak-prev)
 nmap f <Plug>(sneak_f)
 nmap F <Plug>(sneak_F)
 nmap t <Plug>(sneak_t)
