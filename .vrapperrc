@@ -27,10 +27,10 @@ let mapleader="<Space>"
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>x :x<CR>
-"nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>l :ls<CR>
 
-nnoremap <Leader>s :s///g<Left><Left><Left>
-vnoremap <Leader>s :s///g<Left><Left><Left>
+"nnoremap <Leader>s :s///g<Left><Left><Left>
+"vnoremap <Leader>s :s///g<Left><Left><Left>
 
 nmap <C-l> :nohlsearch<CR>
 
@@ -38,10 +38,9 @@ nnoremap gt <C-w>gt
 nnoremap gT <C-w>gT
 
 " Insert empty line above current line
-"nnoremap <Leader>O O<Esc>j
 nnoremap <Leader>O m`O<Esc>``
 " and below current line
-nnoremap <M-o> m`o<Esc>``
+nnoremap <Leader>o m`o<Esc>``
 
 " Paste from yank register
 nnoremap <Leader>p "0p
@@ -65,10 +64,6 @@ nnoremap 3J JJJ
 nnoremap 4J JJJJ
 nnoremap 5J JJJJJ
 
-" Move to the next capital letter"
-"nnoremap ]U /[A-Z]<Return>:noh<CR>
-"nnoremap [U ?[A-Z]<Return>:noh<CR>
-
 " Jump to the previous unmatched }
 nnoremap [} ?}<CR>:noh<CR>
 "onoremap [} ?}<CR>:noh<CR>
@@ -77,28 +72,150 @@ nnoremap [} ?}<CR>:noh<CR>
 nnoremap ]{ /\{<CR>:noh<CR>
 "onoremap ]{ /\{<CR>:noh<CR>
 
-eclipseaction NextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
-nnoremap ]] :NextMember<CR>
+eclipseaction nextMember org.eclipse.jdt.ui.edit.text.java.goto.next.member
+nnoremap ]] :nextMember<CR>
 
-eclipseaction PreviousMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
-nnoremap [[ :PreviousMember<CR>
+eclipseaction prevMember org.eclipse.jdt.ui.edit.text.java.goto.previous.member
+nnoremap [[ :prevMember<CR>
 
-eclipseuiaction QuickSwitchEditor org.eclipse.ui.window.openEditorDropDown
-"nnoremap gb :QuickSwitchEditor<CR>
-nnoremap <Leader>l :QuickSwitchEditor<CR>
+eclipseuiaction nextEditor org.eclipse.ui.navigate.nextTab
+nnoremap ]b :nextEditor<CR>
+nnoremap <S-l> gt
 
-"eclipseaction QuickFormat org.eclipse.jdt.ui.edit.text.java.quick.format
-"vmap <Leader>q :QuickFormat<CR>
-nnoremap <Leader>q :fm<CR>
-vnoremap <Leader>q :fm<CR>
+eclipseuiaction prevEditor org.eclipse.ui.navigate.previousTab
+noremap [b :prevEditor<CR>
+nnoremap <S-h> gT
 
-eclipseuiaction QuickTypeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-nnoremap <Leader>t :QuickTypeHierarchy<CR>
+eclipseuiaction nextView org.eclipse.ui.window.nextView
+nnoremap ]v :nextView<CR>
 
-eclipseuiaction ShowOutline org.eclipse.jdt.ui.edit.text.java.show.outline
-nnoremap <Leader>o :ShowOutline<CR>
+eclipseuiaction prevView org.eclipse.ui.window.previousView
+noremap [v :prevView<CR>
 
-"nnoremap <Leader>rn :eclipsecmd org.eclipse.jdt.ui.edit.text.java.rename.element<CR>
+eclipseuiaction nextPers org.eclipse.ui.window.nextPerspective
+nnoremap ]p :nextPers<CR>
+
+eclipseuiaction prevPers org.eclipse.ui.window.previousPerspective
+noremap [p :prevPers<CR>
+
+eclipseaction nextSearchEntry org.eclipse.search.ui.globalNextSearchEntry
+nnoremap ]n :nextSearchEntry<CR>
+
+eclipseaction prevSearchEntry org.eclipse.search.ui.globalPreviousSearchEntry
+nnoremap [n :prevSearchEntry<CR>
+
+eclipseaction next org.eclipse.ui.navigate.next
+nnoremap ]d :next<CR>
+
+eclipseaction previous org.eclipse.ui.navigate.previous 
+nnoremap [d :previous<CR>
+
+eclipseaction next org.eclipse.ui.navigate.next
+nnoremap ]e :next<CR>
+
+eclipseaction previous org.eclipse.ui.navigate.previous 
+nnoremap [e :previous<CR>
+
+eclipseuiaction showInfo org.eclipse.ui.edit.text.showInformation
+nnoremap K :showInfo<CR>
+nnoremap gh :showInfo<CR>
+
+eclipseuiaction switchEditor org.eclipse.ui.window.openEditorDropDown
+nnoremap <Leader>, :switchEditor<CR>
+"nnoremap <Leader>l :switchEditor<CR>
+
+eclipseuiaction openResource org.eclipse.ui.navigate.openResource
+nnoremap <Leader><Leader> :openResource<CR>
+nnoremap <Leader>ff :openResource<CR>
+
+eclipseuiaction newWizard org.eclipse.ui.newWizard
+nnoremap <Leader>fn :newWizard<CR>
+
+eclipseuiaction switchEditor org.eclipse.ui.window.switchToEditor
+nnoremap <Leader>fb :switchEditor<CR>
+
+eclipseuiaction showIn org.eclipse.ui.navigate.showInQuickMenu
+nnoremap <Leader>fe :showIn<CR>
+
+eclipseuiaction term org.eclipse.ui.views.showView(org.eclipse.terminal.view.ui.internal.view.TerminalsView)
+nnoremap <Leader>ft :term<CR>
+
+eclipseuiaction projectExplorer org.eclipse.ui.views.showView(org.eclipse.ui.navigator.ProjectExplorer)
+nnoremap <Leader>E :projectExplorer<CR>
+
+eclipseuiaction textSearch org.eclipse.search.ui.openFileSearchPage
+"eclipseuiaction textSearch org.eclipse.search.ui.openSearchDialog
+nnoremap <Leader>/ :textSearch<CR>
+nnoremap <Leader>sg :textSearch<CR>
+
+eclipseaction performTextSearch org.eclipse.search.ui.performTextSearchWorkspace
+nnoremap <Leader>sw :performTextSearch<CR>
+vnoremap <Leader>sw :performTextSearch<CR>
+
+eclipseuiaction outline org.eclipse.jdt.ui.edit.text.java.show.outline
+nnoremap <Leader>ss :outline<CR>
+nnoremap gs :outline<CR>
+
+eclipseuiaction keyAssist org.eclipse.ui.window.showKeyAssist
+nnoremap <Leader>sk :keyAssist<CR>
+
+eclipseuiaction quickAccess org.eclipse.ui.window.quickAccess
+nnoremap <Leader>sc :quickAccess<CR>
+
+eclipseuiaction proposals org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
+nnoremap <Leader>ca :proposals<CR>
+nnoremap g. :proposals<CR>
+
+"eclipseaction format org.eclipse.jdt.ui.edit.text.java.quick.format
+"vmap <Leader>q :format<CR>
+"nnoremap <Leader>q :fm<CR>
+"vnoremap <Leader>q :fm<CR>
+nnoremap <Leader>cf :fm<CR>
+vnoremap <Leader>cf :fm<CR>
+
+nnoremap <Leader>cr gR 
+
+"nnoremap <Leader>cd gR 
+nnoremap <Leader>cd :showInfo<CR> 
+
+eclipseaction imports org.eclipse.jdt.ui.edit.text.java.organize.imports
+nnoremap <Leader>co :imports<CR>
+
+eclipseaction references org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
+nnoremap gr :references<CR>
+
+eclipseuiaction hierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+nnoremap gI :hierarchy<CR>
+
+eclipseaction contextInfo org.eclipse.ui.edit.text.contentAssist.contextInformation
+nnoremap gK :contextInfo<CR>
+
+nnoremap <Leader>bb <C-6>
+
+eclipseaction close org.eclipse.ui.file.close
+nnoremap <Leader>bd :close<CR>
+"nnoremap <Leader>bd <C-w>q
+
+eclipseaction closeOthers org.eclipse.ui.file.closeOthers
+nnoremap <Leader>bo :closeOthers<CR>
+
+eclipseaction closeAll org.eclipse.ui.file.closeAll
+nnoremap <Leader>bE :closeAll<CR>
+
+eclipseaction showHist org.eclipse.egit.ui.team.ShowHistory
+nnoremap <Leader>gl :showHist<CR>
+
+eclipseaction compateWithHead org.eclipse.egit.ui.team.CompareWithHead
+nnoremap <Leader>gd :compateWithHead<CR>
+
+eclipseaction max org.eclipse.ui.window.maximizePart
+nnoremap <Leader>wm :max<CR>
+
+eclipseaction wwrap org.eclipse.ui.edit.text.toggleWordWrap
+nnoremap <Leader>uw :wwrap<CR>
+
+eclipseaction fulls org.eclipse.ui.window.fullscreenmode
+nnoremap <Leader>uz :fulls<CR>
 
 " Sneak
 nmap s <Plug>(sneak_s)

@@ -7,9 +7,9 @@ HISTIGNORE='ls:cd:pwd:exit:clear:pd:gd:d:c:h:ll:ltr:cdl:..:...:....:.....:......
 shopt -s histappend
 PROMPT_COMMAND='history -a; history -n'
 
-#PATH=$PATH:.
+PATH=$HOME/bin:$PATH
 
-CDPATH=~/works:~/works/repo
+CDPATH=~/works:~/works/suap:~/scoop/apps
 
 VISUAL=vim
 EDITOR=$VISUAL

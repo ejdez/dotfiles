@@ -127,6 +127,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-sensible')
   call minpac#add('tpope/vim-repeat')
   call minpac#add('tpope/vim-surround')
+  call minpac#add('tpope/vim-commentary')
   call minpac#add('justinmk/vim-sneak')
   call minpac#add('tommcdo/vim-exchange')
   call minpac#add('justinmk/vim-ipmotion')
