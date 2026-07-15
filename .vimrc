@@ -50,7 +50,7 @@ vnoremap <Leader>s :s///g<Left><Left><Left>
 " Insert empty line above current line
 nnoremap <Leader>O m`O<Esc>``
 " and below current line
-nnoremap <M-o> m`o<Esc>`` " Not working, why?
+nnoremap <Leader>o m'o<Esc>``
 
 " Paste from yank register
 nnoremap <Leader>p "0p

@@ -87,16 +87,18 @@ noremap [b :prevEditor<CR>
 nnoremap <S-h> gT
 
 eclipseuiaction nextView org.eclipse.ui.window.nextView
-nnoremap ]v :nextView<CR>
+"nnoremap ]v :nextView<CR>
+nnoremap <Leader>v :nextView<CR>
 
 eclipseuiaction prevView org.eclipse.ui.window.previousView
-noremap [v :prevView<CR>
+"noremap [v :prevView<CR>
 
-eclipseuiaction nextPers org.eclipse.ui.window.nextPerspective
-nnoremap ]p :nextPers<CR>
+eclipseuiaction nextPerspective org.eclipse.ui.window.nextPerspective
+"nnoremap ]p :nextPerspective<CR>
+nnoremap <Leader>p :nextPerspective<CR>
 
-eclipseuiaction prevPers org.eclipse.ui.window.previousPerspective
-noremap [p :prevPers<CR>
+eclipseuiaction prevPerspective org.eclipse.ui.window.previousPerspective
+"noremap [p :prevPerspective<CR>
 
 eclipseaction nextSearchEntry org.eclipse.search.ui.globalNextSearchEntry
 nnoremap ]n :nextSearchEntry<CR>
@@ -120,9 +122,10 @@ eclipseuiaction showInfo org.eclipse.ui.edit.text.showInformation
 nnoremap K :showInfo<CR>
 nnoremap gh :showInfo<CR>
 
-eclipseuiaction switchEditor org.eclipse.ui.window.openEditorDropDown
-nnoremap <Leader>, :switchEditor<CR>
-"nnoremap <Leader>l :switchEditor<CR>
+eclipseuiaction quickSwitchEditor org.eclipse.ui.window.openEditorDropDown
+"nnoremap <Leader>l :quickSwitchEditor<CR>
+nnoremap <Leader>, :quickSwitchEditor<CR>
+nnoremap <Leader>fb :quickSwitchEditor<CR>
 
 eclipseuiaction openResource org.eclipse.ui.navigate.openResource
 nnoremap <Leader><Leader> :openResource<CR>
@@ -132,21 +135,26 @@ eclipseuiaction newWizard org.eclipse.ui.newWizard
 nnoremap <Leader>fn :newWizard<CR>
 
 eclipseuiaction switchEditor org.eclipse.ui.window.switchToEditor
-nnoremap <Leader>fb :switchEditor<CR>
+nnoremap <Leader>fB :switchEditor<CR>
 
 eclipseuiaction showIn org.eclipse.ui.navigate.showInQuickMenu
 nnoremap <Leader>fe :showIn<CR>
 
-eclipseuiaction term org.eclipse.ui.views.showView(org.eclipse.terminal.view.ui.internal.view.TerminalsView)
+eclipseaction term org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.terminal.view.ui.TerminalsView)
 nnoremap <Leader>ft :term<CR>
 
-eclipseuiaction projectExplorer org.eclipse.ui.views.showView(org.eclipse.ui.navigator.ProjectExplorer)
+eclipseaction projectExplorer org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.navigator.ProjectExplorer)
 nnoremap <Leader>E :projectExplorer<CR>
 
-eclipseuiaction textSearch org.eclipse.search.ui.openFileSearchPage
-"eclipseuiaction textSearch org.eclipse.search.ui.openSearchDialog
+eclipseaction textSearch org.eclipse.search.ui.openFileSearchPage
+eclipseaction searchDialog org.eclipse.search.ui.openSearchDialog
 nnoremap <Leader>/ :textSearch<CR>
+vnoremap <Leader>/ :textSearch<CR>
 nnoremap <Leader>sg :textSearch<CR>
+
+eclipseaction findReplace org.eclipse.ui.edit.findReplace
+nnoremap <Leader>sr :findReplace<CR>
+vnoremap <Leader>sr :findReplace<CR>
 
 eclipseaction performTextSearch org.eclipse.search.ui.performTextSearchWorkspace
 nnoremap <Leader>sw :performTextSearch<CR>
@@ -156,6 +164,9 @@ eclipseuiaction outline org.eclipse.jdt.ui.edit.text.java.show.outline
 nnoremap <Leader>ss :outline<CR>
 nnoremap gs :outline<CR>
 
+eclipseaction contentOutline org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ContentOutline)
+nnoremap <Leader>sS :contentOutline<CR>
+
 eclipseuiaction keyAssist org.eclipse.ui.window.showKeyAssist
 nnoremap <Leader>sk :keyAssist<CR>
 
@@ -164,6 +175,7 @@ nnoremap <Leader>sc :quickAccess<CR>
 
 eclipseuiaction proposals org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
 nnoremap <Leader>ca :proposals<CR>
+nnoremap <Leader>cA :proposals<CR>
 nnoremap g. :proposals<CR>
 
 "eclipseaction format org.eclipse.jdt.ui.edit.text.java.quick.format
@@ -199,14 +211,30 @@ nnoremap <Leader>bd :close<CR>
 eclipseaction closeOthers org.eclipse.ui.file.closeOthers
 nnoremap <Leader>bo :closeOthers<CR>
 
+eclipseaction pinEditor org.eclipse.ui.window.pinEditor
+nnoremap <Leader>bp :pinEditor<CR>
+
+eclipseaction pinEditor org.eclipse.ui.window.pinEditor
+nnoremap <Leader>bP :pinEditor<CR>
+
 eclipseaction closeAll org.eclipse.ui.file.closeAll
 nnoremap <Leader>bE :closeAll<CR>
+
+eclipseaction teamSync org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.TeamSynchronizingPerspective)
+nnoremap <Leader>gg :teamSync<CR>
+nnoremap <Leader>gs :teamSync<CR>
+
+eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
+nnoremap <Leader>gd :compareWithHead<CR>
 
 eclipseaction showHist org.eclipse.egit.ui.team.ShowHistory
 nnoremap <Leader>gl :showHist<CR>
 
-eclipseaction compateWithHead org.eclipse.egit.ui.team.CompareWithHead
-nnoremap <Leader>gd :compateWithHead<CR>
+eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
+nnoremap <Leader>gd :compareWithHead<CR>
+
+eclipseaction replaceWithHead org.eclipse.egit.ui.team.ReplaceWithHead
+nnoremap <Leader>gR :replaceWithHead<CR>
 
 eclipseaction max org.eclipse.ui.window.maximizePart
 nnoremap <Leader>wm :max<CR>

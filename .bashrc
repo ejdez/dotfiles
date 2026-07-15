@@ -7,7 +7,7 @@ HISTIGNORE='ls:cd:pwd:exit:clear:pd:gd:d:c:h:ll:ltr:cdl:..:...:....:.....:......
 shopt -s histappend
 PROMPT_COMMAND='history -a; history -n'
 
-PATH=$HOME/bin:$PATH
+PATH=$HOME/works/opt/wildfly/bin:$HOME/bin:$PATH
 
 CDPATH=~/works:~/works/suap:~/scoop/apps
 
