@@ -118,9 +118,9 @@ nnoremap ]e :next<CR>
 eclipseaction previous org.eclipse.ui.navigate.previous 
 nnoremap [e :previous<CR>
 
-eclipseuiaction showInfo org.eclipse.ui.edit.text.showInformation
-nnoremap K :showInfo<CR>
-nnoremap gh :showInfo<CR>
+eclipseuiaction tooltip org.eclipse.ui.edit.text.showInformation
+nnoremap K :tooltip<CR>
+nnoremap gh :tooltip<CR>
 
 eclipseuiaction quickSwitchEditor org.eclipse.ui.window.openEditorDropDown
 "nnoremap <Leader>l :quickSwitchEditor<CR>
@@ -173,10 +173,10 @@ nnoremap <Leader>sk :keyAssist<CR>
 eclipseuiaction quickAccess org.eclipse.ui.window.quickAccess
 nnoremap <Leader>sc :quickAccess<CR>
 
-eclipseuiaction proposals org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
-nnoremap <Leader>ca :proposals<CR>
-nnoremap <Leader>cA :proposals<CR>
-nnoremap g. :proposals<CR>
+eclipseuiaction quickFix org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
+nnoremap <Leader>ca :quickFix<CR>
+nnoremap <Leader>cA :quickFix<CR>
+nnoremap g. :quickFix<CR>
 
 "eclipseaction format org.eclipse.jdt.ui.edit.text.java.quick.format
 "vmap <Leader>q :format<CR>
@@ -188,7 +188,7 @@ vnoremap <Leader>cf :fm<CR>
 nnoremap <Leader>cr gR 
 
 "nnoremap <Leader>cd gR 
-nnoremap <Leader>cd :showInfo<CR> 
+nnoremap <Leader>cd :tooltip<CR> 
 
 eclipseaction imports org.eclipse.jdt.ui.edit.text.java.organize.imports
 nnoremap <Leader>co :imports<CR>
