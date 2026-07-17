@@ -220,8 +220,10 @@ nnoremap <Leader>bP :pinEditor<CR>
 eclipseaction closeAll org.eclipse.ui.file.closeAll
 nnoremap <Leader>bE :closeAll<CR>
 
+eclipseaction gitExplorer org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.GitRepositoryExploring)
+nnoremap <Leader>gg :gitExplorer<CR>
+
 eclipseaction teamSync org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.TeamSynchronizingPerspective)
-nnoremap <Leader>gg :teamSync<CR>
 nnoremap <Leader>gs :teamSync<CR>
 
 eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
@@ -267,3 +269,7 @@ vmap T <Plug>(sneak_T)
 omap z <Plug>(sneak_s)
 omap Z <Plug>(sneak_S)
 
+"Eclipse key bindings
+"C-/ Show View Terminal
+"]c Select Next Change (Compare)
+"[c Select Prev Change (Compare)

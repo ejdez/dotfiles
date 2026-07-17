@@ -1,0 +1,181 @@
+[
+  {
+    "key": "ctrl+shift+m m",
+    "command": "workbench.action.maximizeEditorHideSidebar"
+  },
+  {
+    "key": "ctrl+shift+m j",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+shift+m l",
+    "command": "workbench.action.toggleMaximizedAuxiliaryBar"
+  },
+
+  // From https://github.com/wojukasz/VimCode
+
+  // WHEN CLAUSES:
+  // The "when" field controls when a binding is active. Common contexts:
+  // - editorTextFocus: cursor is in an editor
+  // - vim.active: Vim extension is active
+  // - vim.mode: current Vim mode (Normal, Insert, Visual)
+  // - suggestWidgetVisible: autocomplete menu is open
+  // - inQuickOpen: Quick Open (Ctrl+P) is open
+  // - terminalFocus: terminal is focused
+  // - listFocus: a list (explorer, search) has focus
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ WINDOW RESIZING - Ctrl+Arrow Keys (LazyVim: <C-Up/Down/Left/Right>)                │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // Resize editor splits using Ctrl+Arrow keys. Only active in Normal mode to avoid
+  // interfering with text editing shortcuts (Ctrl+Left/Right normally jump words).
+  //
+  {
+    "key": "ctrl+up",
+    "command": "workbench.action.increaseViewHeight",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "workbench.action.decreaseViewHeight",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.decreaseViewWidth",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.increaseViewWidth",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ TERMINAL TOGGLE - Ctrl+/ (LazyVim: <C-/>)                                          │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // Toggle terminal panel visibility using Ctrl+/.
+  // - If terminal is hidden: opens and focuses it
+  // - If terminal is visible and focused: closes it
+  // - If terminal is visible but not focused: focuses it
+  //
+  // Note: oem_2 is the / (forward slash) key
+  //
+  {
+    "key": "ctrl+oem_2",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+
+  // Alternative terminal toggle that focuses terminal if not focused
+  {
+    "key": "ctrl+oem_2",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ DIAGNOSTICS NAVIGATION - [d, ]d (all files) and [e, ]e (current file)              │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // LazyVim diagnostic navigation using bracket prefix:
+  // - [d / ]d = previous/next diagnostic across all files
+  // - [e / ]e = previous/next diagnostic in current file only
+  //
+  // SPECIAL KEY CODES:
+  // - oem_4 = [ (left bracket)
+  // - oem_6 = ] (right bracket)
+  //
+  // On non-US keyboards, you may need to use scan codes instead:
+  // - "key": "[BracketLeft] d" instead of "key": "oem_4 d"
+  //
+  // Only active in Normal mode to prevent conflicts when typing brackets in Insert mode.
+  //
+//  {
+//    "key": "oem_4 d",                                  // [d = previous diagnostic (all files)
+//    "command": "editor.action.marker.prevInFiles",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+//  {
+//    "key": "oem_6 d",                                  // ]d = next diagnostic (all files)
+//    "command": "editor.action.marker.nextInFiles",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+//  {
+//    "key": "oem_4 e",                                  // [e = previous diagnostic (current file)
+//    "command": "editor.action.marker.prev",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+//  {
+//    "key": "oem_6 e",                                  // ]e = next diagnostic (current file)
+//    "command": "editor.action.marker.next",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ QUICKFIX/SEARCH RESULTS NAVIGATION - [q, ]q                                        │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // Navigate search results using bracket prefix.
+  // Only active when search results exist and in Normal mode.
+  //
+//  {
+//    "key": "oem_4 n",                                  // [n = previous search result
+//    "command": "runCommands",
+//    "args": {
+//      "commands": [
+//        "search.action.focusPreviousSearchResult",
+//        "extension.vim_escape"
+//      ]
+//    },
+//    "when": "hasSearchResult && vim.active && vim.mode == 'Normal' && !editorHasSelection"
+//  },
+//  {
+//    "key": "oem_6 n",                                  // ]n = next search result
+//    "command": "runCommands",
+//    "args": {
+//      "commands": [
+//        "search.action.focusNextSearchResult",
+//        "extension.vim_escape"
+//      ]
+//    },
+//    "when": "hasSearchResult && vim.active && vim.mode == 'Normal' && !editorHasSelection"
+//  },
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ BUFFER NAVIGATION - [b, ]b (alternate method)                                      │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // Alternative buffer navigation using bracket prefix (same as Shift+H/L).
+  // Some users prefer this LazyVim pattern for consistency with other bracket navigation.
+  //
+//  {
+//    "key": "oem_4 b",                                  // [b = previous buffer/editor
+//    "command": "workbench.action.previousEditor",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+//  {
+//    "key": "oem_6 b",                                  // ]b = next buffer/editor
+//    "command": "workbench.action.nextEditor",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+
+  // ┌────────────────────────────────────────────────────────────────────────────────────┐
+  // │ GIT HUNK NAVIGATION - [h, ]h (requires Git or GitLens)                             │
+  // └────────────────────────────────────────────────────────────────────────────────────┘
+  //
+  // Navigate between git changes/hunks in the current file.
+  // Works with native VSCode git or GitLens extension.
+  //
+//  {
+//    "key": "oem_4 c",                                  // [c = previous git change
+//    "command": "workbench.action.editor.previousChange",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  },
+//  {
+//    "key": "oem_6 c",                                  // ]c = next git change
+//    "command": "workbench.action.editor.nextChange",
+//    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+//  }
+]

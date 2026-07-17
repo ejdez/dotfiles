@@ -1,0 +1,682 @@
+{
+  "editor.formatOnPaste": true,
+  "git.autofetch": true,
+  "[markdown]":  {
+    "editor.wordWrap": "on"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "highlight.regexes": {
+    "(?<!\\w)(?:[frb])?(('''|\"\"\")((?:(?!\\2)[\\s\\S])*?)\\2|'([^'\\\\]|\\\\.)*'|\"([^\"\\\\]|\\\\.)*\")": {
+      "regexFlags": "gms",
+      "decorations": [
+        {
+          "color": "#ffcd8b",
+          "backgroundColor": "#404040"
+        }
+      ]
+    },
+    "\\\\[a-z]": {
+      "color": "#c080d0"
+    },
+    "^\\+.*": {
+      "color": "#ffffcd"
+    },
+    "^-.*": {
+      "color": "#ffffcd"
+    },
+    "^@@.*@@": {
+      "color": "#ffffcd"
+    },
+    "^<<<<<<<.*": {
+      "color": "#ffffff"
+    },
+    "^=======.*": {
+      "color": "#ffffff"
+    },
+    "^>>>>>>>.*": {
+      "color": "#ffffff"
+    }
+  },
+  "highlight.decorations": {
+    "rangeBehavior": 3
+  },
+  "highlight.regexFlags": "gim",
+  "[python]": {
+    "editor.semanticHighlighting.enabled": false
+  },
+  "vim.leader" : "<space>",
+  "vim.textwidth": 80,
+  "vim.timeout": 1400,
+  "vim.hlsearch": true,
+  "vim.ignorecase": true,
+  "vim.useSystemClipboard": true,
+  "vim.searchHighlightColor": "rgba(180, 142, 173, 0.5)",
+  "vim.highlightedyank.enable": false,
+  "vim.surround": true,
+  "vim.sneak": true,
+  "vim.sneakReplacesF": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.targets.enable": false,
+  "vim.foldfix": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<esc>"],
+      "commands": ["cancelSelection"]
+    }, 
+    {
+      "before": ["<C-l>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": [":ls"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["*"],
+      "after": ["*", "N"]
+    },
+    {
+      "before": ["#"],
+      "after": ["#", "N"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "0", "p"]
+    },
+    {
+      "before": ["<leader>", "P"],
+      "after": ["\"", "0", "P"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "after": ["m", "`", "o", "<esc>", "`", "`"]
+    },
+    {
+      "before": ["<leader>", "O"],
+      "after": ["m", "`", "O", "<esc>", "`", "`"]
+    },
+    {
+      "before": ["]", "]"],
+      "commands": ["gotoNextPreviousMember.nextMember"]
+    },
+    {
+      "before": ["[", "["],
+      "commands": ["gotoNextPreviousMember.previousMember"]
+    },
+    {
+      "before": ["<leader>", "u", "H"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "u", "J"],
+      "commands": ["workbench.action.togglePanel"]
+    },
+    {
+      "before": ["<leader>", "u", "L"],
+      "commands": ["workbench.action.toggleAuxiliaryBar"]
+    },
+    {
+      "before": ["<leader>", "c", "E"],
+      "commands": [
+        "workbench.action.closeSidebar",
+        "workbench.action.closeAuxiliaryBar",
+        "workbench.action.closePanel"
+      ]
+    },
+    {
+      "before": ["[", "n"],
+      "commands": ["search.action.focusPreviousSearchResult", "extension.vim_escape"]
+    },
+    {
+      "before": ["]", "n"],
+      "commands": ["search.action.focusNextSearchResult", "extension.vim_escape"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["]", "b"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+
+    // From https://github.com/wojukasz/VimCode
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ GENERAL UTILITY MAPPINGS                                                       │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+
+//     {
+//       "before": ["<leader>", "d"],                     // <leader>d = delete line (dd shortcut)
+//       "after": ["d", "d"]
+//     },
+//     {
+//       "before": ["<Esc>"],                             // Escape clears search highlight
+//       "commands": [":nohl"]
+//     },
+//     {
+//       "before": ["<C-n>"],                             // Ctrl+n also clears search highlight
+//       "commands": [":nohl"]
+//     },
+    {
+      "before": ["K"],                                 // K = show hover documentation (LSP)
+      "commands": ["editor.action.showHover"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ FILE OPERATIONS - <leader>f* prefix                                            │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim file operations pattern for finding, creating, and managing files
+    //
+
+    {
+      "before": ["<leader>", "<space>"],               // <leader><space> = find files (Quick Open)
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", ","],                     // <leader>, = switch buffer (Quick Open Editors)
+      "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"] //workbench.action.showEditorsInActiveGroup
+    },
+    {
+      "before": ["<leader>", "/"],                     // <leader>/ = search in files (Live Grep equivalent)
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],                // <leader>ff = find files (same as <leader><space>)
+      "commands": ["workbench.action.quickOpen"]
+    },
+//    {
+//      "before": ["<leader>", "f", "F"],
+//      "commands": ["workbench.action.openPreviousEditorFromHistory"]
+//    },
+    {
+      "before": ["<leader>", "f", "p"],                // <leader>fp = recent projects
+      "commands": ["workbench.action.openRecent"]
+    },
+    {
+      "before": ["<leader>", "f", "n"],                // <leader>fn = new file
+      "commands": ["workbench.action.files.newUntitledFile"]
+    },
+    {
+      "before": ["<leader>", "f", "b"],                // <leader>fb = buffers (open editors)
+      "commands": ["workbench.action.showAllEditorsByMostRecentlyUsed"]
+    },
+    {
+      "before": ["<leader>", "f", "B"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "f", "e"],                // <leader>fe = file explorer (reveal active file)
+      "commands": ["workbench.files.action.showActiveFileInExplorer"]
+    },
+    {
+      "before": ["<leader>", "f", "t"],
+      "commands": ["workbench.action.terminal.focus"]
+    },
+//    {
+//      "before": ["<leader>", "f", "t"],                // <leader>ft = toggle terminal
+//      "commands": ["workbench.action.terminal.toggleTerminal"]
+//    },
+//    {
+//      "before": ["<leader>", "e"],                     // <leader>e = toggle sidebar
+//      "commands": ["workbench.action.toggleSidebarVisibility"]
+//    },
+    {
+      "before": ["<leader>", "E"],                     // <leader>E = focus file explorer
+      "commands": ["workbench.files.action.focusFilesExplorer"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ SEARCH OPERATIONS - <leader>s* prefix                                          │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim search operations for finding text, symbols, and configuration
+    //
+
+    {
+      "before": ["<leader>", "s", "g"],                // <leader>sg = grep/search in files
+      "commands": ["workbench.action.findInFiles"]
+    },
+//    {
+//      "before": ["<leader>", "s", "w"],                // <leader>sw = search word under cursor
+//      "commands": ["workbench.action.findInFiles"]
+//    },
+    {
+      "before": ["<leader>", "s", "r"],                // <leader>sr = search and replace in files
+      "commands": ["workbench.action.replaceInFiles"]
+    },
+    {
+      "before": ["g", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "s", "s"],                // <leader>ss = goto symbol in file
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "s", "S"],                // <leader>sS = goto symbol in workspace
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["<leader>", "s", "k"],                // <leader>sk = keymaps (open keyboard shortcuts)
+      "commands": ["workbench.action.openGlobalKeybindings"]
+    },
+    {
+      "before": ["<leader>", "s", "c"],                // <leader>sc = command palette
+      "commands": ["workbench.action.showCommands"]
+    },
+//    {
+//      "before": ["<leader>", "s", "h"],                // <leader>sh = help (all commands)
+//      "commands": ["workbench.action.showAllCommands"]
+//    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ CODE ACTIONS - <leader>c* prefix (LSP operations)                              │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim code actions for LSP features like formatting, refactoring, diagnostics
+    //
+
+    {
+      "before": ["g", "."],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],                // <leader>ca = code action (quick fix)
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "A"],                // <leader>cA = source action
+      "commands": ["editor.action.sourceAction"]
+    },
+    {
+      "before": ["<leader>", "c", "f"],                // <leader>cf = format document
+      "commands": ["editor.action.formatDocument"]
+    },
+//    {
+//      "before": ["<leader>", "c", "F"],                // <leader>cF = format selection
+//      "commands": ["editor.action.formatSelection"]
+//    },
+    {
+      "before": ["<leader>", "c", "r"],                // <leader>cr = rename symbol
+      "commands": ["editor.action.rename"]
+    },
+//    {
+//      "before": ["<leader>", "c", "d"],
+//      "commands": ["editor.action.rename"]
+//    },
+    {
+      "before": ["<leader>", "c", "d"],                // <leader>cd = line diagnostics (hover)
+      "commands": ["editor.action.showHover"]
+    },
+//    {
+//      "before": ["<leader>", "c", "l"],                // <leader>cl = open problems panel
+//      "commands": ["workbench.action.problems.focus"]
+//    },
+    {
+      "before": ["<leader>", "c", "o"],                // <leader>co = organise imports
+      "commands": ["editor.action.organizeImports"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ LSP NAVIGATION - g* prefix (goto definitions, references, etc.)                │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // Standard Vim LSP navigation bindings (matches LazyVim defaults)
+    //
+
+//    {
+//      "before": ["g", "d"],                            // gd = goto definition
+//      "commands": ["editor.action.revealDefinition"]
+//    },
+//    {
+//      "before": ["g", "D"],                            // gD = goto declaration
+//      "commands": ["editor.action.revealDeclaration"]
+//    },
+    {
+      "before": ["g", "r"],                            // gr = goto references
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "I"],                            // gI = goto implementation
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "y"],                            // gy = goto type definition
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "K"],                            // gK = signature help (parameter hints)
+      "commands": ["editor.action.triggerParameterHints"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ BUFFER MANAGEMENT - <leader>b* prefix                                          │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim buffer operations for managing open files/tabs
+    //
+
+    {
+      "before": ["<leader>", "b", "b"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"]
+    },
+//    {
+//      "before": ["<leader>", "b", "b"],                // <leader>bb = switch buffer (show all editors)
+//      "commands": ["workbench.action.showAllEditors"]
+//    },
+    {
+      "before": ["<leader>", "b", "d"],                // <leader>bd = delete buffer (close tab)
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+//    {
+//      "before": ["<leader>", "b", "D"],                // <leader>bD = delete other buffers
+//      "commands": ["workbench.action.closeOtherEditors"]
+//    },
+    {
+      "before": ["<leader>", "b", "o"],                // <leader>bo = close other editors (same as bD)
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "b", "p"],                // <leader>bp = pin buffer (pin tab)
+      "commands": ["workbench.action.pinEditor"]
+    },
+    {
+      "before": ["<leader>", "b", "P"],                // <leader>bP = unpin buffer
+      "commands": ["workbench.action.unpinEditor"]
+    },
+//    {
+//      "before": ["<leader>", "`"],                     // <leader>` = last buffer (alternate file)
+//      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"]
+//    },
+    // Note: Shift+H and Shift+L (buffer prev/next) are handled in keybindings.json.
+    // User keybindings.json takes priority over VSCodeVim's type handler, so defining
+    // <S-h>/<S-l> here would be dead code — keybindings.json wins.
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ GIT OPERATIONS - <leader>g* prefix (requires GitLens extension)                │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim git operations. Most features require GitLens extension for full functionality.
+    // Without GitLens, basic git commands (gg, gs, gd) still work with native VSCode git.
+    //
+
+    {
+      "before": ["<leader>", "g", "g"],                // <leader>gg = git status (open source control)
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],                // <leader>gs = git status (same as gg)
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "g", "b"],                // <leader>gb = git blame toggle (GitLens)
+      "commands": ["gitlens.toggleFileBlame"]
+    },
+    {
+      "before": ["<leader>", "g", "B"],                // <leader>gB = git browse (open on remote - GitLens)
+      "commands": ["gitlens.openFileOnRemote"]
+    },
+    {
+      "before": ["<leader>", "g", "d"],                // <leader>gd = git diff (show changes)
+      "commands": ["git.openChange"]
+    },
+    {
+      "before": ["<leader>", "g", "l"],                // <leader>gl = git log (file history - GitLens)
+      "commands": ["gitlens.showQuickFileHistory"]
+    },
+    {
+      "before": ["<leader>", "g", "L"],                // <leader>gL = git log (branch history - GitLens)
+      "commands": ["gitlens.showQuickRepoHistory"]
+    },
+    {
+      "before": ["<leader>", "g", "c"],                // <leader>gc = git commits (show commit details - GitLens)
+      "commands": ["gitlens.showQuickCommitDetails"]
+    },
+    {
+      "before": ["[", "c"],
+      "commands": ["workbench.action.compareEditor.previousChange"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.compareEditor.nextChange"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ WINDOW MANAGEMENT - <leader>w* and <leader>-/| prefix                          │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim window/split operations
+    //
+
+//    {
+//      "before": ["<leader>", "w", "d"],                // <leader>wd = close window (close split/editor)
+//      "commands": ["workbench.action.closeActiveEditor"]
+//    },
+//    {
+//      "before": ["<leader>", "w", "w"],                // <leader>ww = switch window (focus other group)
+//      "commands": ["workbench.action.focusNextGroup"]
+//    },
+    {
+      "before": ["<leader>", "w", "m"],                // <leader>wm = maximise window (toggle editor width)
+      "commands": ["workbench.action.toggleEditorWidths"]
+    },
+    {
+      "before": ["<leader>", "w", "M"],
+      "commands": ["workbench.action.toggleMaximizeEditorGroup"]
+    },
+//    {
+//      "before": ["<leader>", "w", "l"],
+//      "commands": ["workbench.action.focusNextGroup"]
+//    },
+//    {
+//      "before": ["<leader>", "w", "h"],
+//      "commands": ["workbench.action.focusPreviousGroup"]
+//    },
+//    {
+//      "before": ["<leader>", "-"],                     // <leader>- = split window below
+//      "commands": ["workbench.action.splitEditorDown"]
+//    },
+//    {
+//      "before": ["<leader>", "|"],                     // <leader>| = split window right
+//      "commands": ["workbench.action.splitEditorRight"]
+//    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ DIAGNOSTICS/QUICKFIX - <leader>x* prefix and [ ] navigation                    │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim diagnostics and error navigation. Bracket prefix mappings ([d, ]d) are
+    // defined in keybindings.json because they use special key codes (oem_4, oem_6).
+    //
+
+    {
+      "before": ["<leader>", "x", "x"],
+      "commands": [
+        "workbench.panel.markers.view.focus",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    {
+      "before": ["<leader>", "x", "X"],
+      "commands": [
+        "workbench.panel.markers.view.focus",
+        "workbench.actions.workbench.panel.markers.view.toggleActiveFile",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+//    {
+//      "before": ["<leader>", "x", "x"],                // <leader>xx = diagnostics list (problems panel)
+//      "commands": ["workbench.action.problems.focus"]
+//    },
+//    {
+//      "before": ["<leader>", "x", "X"],                // <leader>xX = workspace diagnostics
+//      "commands": ["workbench.actions.view.problems"]
+//    },
+    {
+      "before": ["<leader>", "x", "l"],                // <leader>xl = location list (same as xx)
+      "commands": ["workbench.action.problems.focus"]
+    },
+    // Note: [d, ]d, [e, ]e navigation defined in keybindings.json
+
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["[", "e"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "e"],
+      "commands": ["editor.action.marker.next"]
+    },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ UI TOGGLES - <leader>u* prefix                                                 │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+    //
+    // LazyVim UI toggle operations. Line number toggling requires Settings Cycler extension.
+    // Install: hoovercj.vscode-settings-cycler
+    // Configure settings.cycle in this file (see bottom section).
+    //
+
+    {
+      "before": ["<leader>", "u", "w"],                // <leader>uw = toggle word wrap
+      "commands": ["editor.action.toggleWordWrap"]
+    },
+    {
+      "before": ["<leader>", "u", "z"],                // <leader>uz = toggle zen mode
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+//    {
+//      "before": ["<leader>", "u", "r"],                // <leader>ur = redraw/clear search
+//      "commands": [":nohl"]
+//    },
+    // Requires Settings Cycler extension - uncomment after installing:
+    // {
+    //   "before": ["<leader>", "u", "l"],              // <leader>ul = toggle line numbers
+    //   "commands": ["settings.cycle.lineNumbers"]
+    // },
+    // {
+    //   "before": ["<leader>", "u", "L"],              // <leader>uL = toggle relative numbers
+    //   "commands": ["settings.cycle.relativeLineNumbers"]
+    // },
+
+    // ┌────────────────────────────────────────────────────────────────────────────────┐
+    // │ QUIT - <leader>q* prefix                                                       │
+    // └────────────────────────────────────────────────────────────────────────────────┘
+
+//     {
+//       "before": ["<leader>", "q", "q"],                // <leader>qq = quit VSCode
+//       "commands": ["workbench.action.closeWindow"]
+//     },
+//     {
+//       "before": ["<leader>", "q", "a"],                // <leader>qa = quit all windows
+//       "commands": ["workbench.action.quit"]
+//     }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "c", "f"],
+      "commands": ["editor.action.formatSelection", "extension.vim_escape"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "0", "p"]
+    },
+    {
+      "before": ["<leader>", "P"],
+      "after": ["\"", "0", "P"]
+    },
+    {
+      "before": ["<leader>", "/"],                     // <leader>/ = search selected text 
+      "commands": ["workbench.action.findInFiles", "extension.vim_escape"]
+    },
+    {
+      "before": ["<leader>", "s", "w"],                // <leader>sw = search selected text 
+      "commands": ["workbench.action.findInFiles", "extension.vim_escape"]
+    }
+  ],
+  "extensions.experimental.affinity": {
+      "vscodevim.vim": 1
+  },
+  "window.zoomLevel": 0.5,
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.cursorBlinking": "solid",
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80, 120],
+  "editor.cursorSurroundingLines": 2,
+  "editor.tabSize": 2,
+  "editor.fontSize": 16,
+  "chat.fontSize": 16,
+  "chat.editor.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "scm.inputFontSize": 16,
+  "debug.console.fontSize": 16,
+  "markdown.preview.fontSize": 16,
+  "yaml.format.printWidth": 80,
+  "prettier.printWidth": 80,
+  "workbench.colorTheme": "Inkpot",
+  "workbench.tree.enableStickyScroll": false,
+  "terminal.integrated.profiles.windows": {
+      "Git Bash": {
+          "path": "C:\\Users\\eduardo.hernandez\\scoop\\apps\\git\\current\\bin\\bash.exe",
+          "args": [
+              "--login",
+              "-i"
+          ]
+      },
+      "Command Prompt": {
+          "path": [
+              "${env:windir}\\Sysnative\\cmd.exe",
+              "${env:windir}\\System32\\cmd.exe"
+          ],
+          "args": [],
+          "icon": "terminal-cmd"
+      },
+      "PowerShell": {
+          "source": "PowerShell",
+          "icon": "terminal-powershell"
+      },
+      "Windows PowerShell": {
+          "path": "C:\\windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      }
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "redhat.telemetry.enabled": false
+}
