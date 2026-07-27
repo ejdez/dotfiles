@@ -9,7 +9,7 @@ PROMPT_COMMAND='history -a; history -n'
 
 PATH=$HOME/works/opt/wildfly/bin:$HOME/bin:$PATH
 
-CDPATH=~/works:~/works/suap:~/scoop/apps
+CDPATH=~/works:~/works/suap:~/works/siap:~/scoop/apps
 
 VISUAL=vim
 EDITOR=$VISUAL

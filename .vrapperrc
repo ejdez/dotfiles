@@ -131,6 +131,9 @@ eclipseuiaction openResource org.eclipse.ui.navigate.openResource
 nnoremap <Leader><Leader> :openResource<CR>
 nnoremap <Leader>ff :openResource<CR>
 
+eclipseuiaction openType org.eclipse.jdt.ui.navigate.open.type
+nnoremap <Leader>fF :openType<CR>
+
 eclipseuiaction newWizard org.eclipse.ui.newWizard
 nnoremap <Leader>fn :newWizard<CR>
 
@@ -196,11 +199,11 @@ nnoremap <Leader>co :imports<CR>
 eclipseaction references org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
 nnoremap gr :references<CR>
 
-eclipseuiaction hierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
-nnoremap gI :hierarchy<CR>
+eclipseuiaction typeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
+nnoremap gI :typeHierarchy<CR>
 
-eclipseaction contextInfo org.eclipse.ui.edit.text.contentAssist.contextInformation
-nnoremap gK :contextInfo<CR>
+eclipseaction paramHints org.eclipse.ui.edit.text.contentAssist.contextInformation
+nnoremap gK :paramHints<CR>
 
 nnoremap <Leader>bb <C-6>
 
@@ -213,8 +216,6 @@ nnoremap <Leader>bo :closeOthers<CR>
 
 eclipseaction pinEditor org.eclipse.ui.window.pinEditor
 nnoremap <Leader>bp :pinEditor<CR>
-
-eclipseaction pinEditor org.eclipse.ui.window.pinEditor
 nnoremap <Leader>bP :pinEditor<CR>
 
 eclipseaction closeAll org.eclipse.ui.file.closeAll
@@ -229,8 +230,8 @@ nnoremap <Leader>gs :teamSync<CR>
 eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
 nnoremap <Leader>gd :compareWithHead<CR>
 
-eclipseaction showHist org.eclipse.egit.ui.team.ShowHistory
-nnoremap <Leader>gl :showHist<CR>
+eclipseaction showHistory org.eclipse.egit.ui.team.ShowHistory
+nnoremap <Leader>gl :showHistory<CR>
 
 eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
 nnoremap <Leader>gd :compareWithHead<CR>
@@ -238,14 +239,14 @@ nnoremap <Leader>gd :compareWithHead<CR>
 eclipseaction replaceWithHead org.eclipse.egit.ui.team.ReplaceWithHead
 nnoremap <Leader>gR :replaceWithHead<CR>
 
-eclipseaction max org.eclipse.ui.window.maximizePart
-nnoremap <Leader>wm :max<CR>
+eclipseaction maximize org.eclipse.ui.window.maximizePart
+nnoremap <Leader>wm :maximize<CR>
 
-eclipseaction wwrap org.eclipse.ui.edit.text.toggleWordWrap
-nnoremap <Leader>uw :wwrap<CR>
+eclipseaction wordWrap org.eclipse.ui.edit.text.toggleWordWrap
+nnoremap <Leader>uw :wordWrap<CR>
 
-eclipseaction fulls org.eclipse.ui.window.fullscreenmode
-nnoremap <Leader>uz :fulls<CR>
+eclipseaction fullscreen org.eclipse.ui.window.fullscreenmode
+nnoremap <Leader>uz :fullscreen<CR>
 
 " Sneak
 nmap s <Plug>(sneak_s)
