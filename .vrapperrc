@@ -120,7 +120,6 @@ nnoremap [e :previous<CR>
 
 eclipseuiaction tooltip org.eclipse.ui.edit.text.showInformation
 nnoremap K :tooltip<CR>
-nnoremap gh :tooltip<CR>
 
 eclipseuiaction quickSwitchEditor org.eclipse.ui.window.openEditorDropDown
 "nnoremap <Leader>l :quickSwitchEditor<CR>
@@ -132,7 +131,7 @@ nnoremap <Leader><Leader> :openResource<CR>
 nnoremap <Leader>ff :openResource<CR>
 
 eclipseuiaction openType org.eclipse.jdt.ui.navigate.open.type
-nnoremap <Leader>fF :openType<CR>
+nnoremap <Leader>fy :openType<CR>
 
 eclipseuiaction newWizard org.eclipse.ui.newWizard
 nnoremap <Leader>fn :newWizard<CR>
@@ -165,7 +164,8 @@ vnoremap <Leader>sw :performTextSearch<CR>
 
 eclipseuiaction outline org.eclipse.jdt.ui.edit.text.java.show.outline
 nnoremap <Leader>ss :outline<CR>
-nnoremap gs :outline<CR>
+nnoremap gs :outline<CR> "Not working, why?
+nnoremap go :outline<CR>
 
 eclipseaction contentOutline org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ContentOutline)
 nnoremap <Leader>sS :contentOutline<CR>
@@ -174,7 +174,7 @@ eclipseuiaction keyAssist org.eclipse.ui.window.showKeyAssist
 nnoremap <Leader>sk :keyAssist<CR>
 
 eclipseuiaction quickAccess org.eclipse.ui.window.quickAccess
-nnoremap <Leader>sc :quickAccess<CR>
+nnoremap <Leader>sc :quickAccess<CR> "C-3
 
 eclipseuiaction quickFix org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
 nnoremap <Leader>ca :quickFix<CR>
@@ -188,19 +188,21 @@ nnoremap g. :quickFix<CR>
 nnoremap <Leader>cf :fm<CR>
 vnoremap <Leader>cf :fm<CR>
 
-nnoremap <Leader>cr gR 
-
-"nnoremap <Leader>cd gR 
-nnoremap <Leader>cd :tooltip<CR> 
-
 eclipseaction imports org.eclipse.jdt.ui.edit.text.java.organize.imports
 nnoremap <Leader>co :imports<CR>
+
+nnoremap <Leader>cr gR 
+
+nnoremap <Leader>cd :tooltip<CR> 
+nnoremap gh :tooltip<CR>
 
 eclipseaction references org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace
 nnoremap gr :references<CR>
 
 eclipseuiaction typeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
 nnoremap gI :typeHierarchy<CR>
+
+nnoremap gy :openType<CR>
 
 eclipseaction paramHints org.eclipse.ui.edit.text.contentAssist.contextInformation
 nnoremap gK :paramHints<CR>
@@ -214,12 +216,12 @@ nnoremap <Leader>bd :close<CR>
 eclipseaction closeOthers org.eclipse.ui.file.closeOthers
 nnoremap <Leader>bo :closeOthers<CR>
 
+eclipseaction closeAll org.eclipse.ui.file.closeAll
+nnoremap <Leader>bE :closeAll<CR>
+
 eclipseaction pinEditor org.eclipse.ui.window.pinEditor
 nnoremap <Leader>bp :pinEditor<CR>
 nnoremap <Leader>bP :pinEditor<CR>
-
-eclipseaction closeAll org.eclipse.ui.file.closeAll
-nnoremap <Leader>bE :closeAll<CR>
 
 eclipseaction gitExplorer org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.GitRepositoryExploring)
 nnoremap <Leader>gg :gitExplorer<CR>
@@ -232,9 +234,6 @@ nnoremap <Leader>gd :compareWithHead<CR>
 
 eclipseaction showHistory org.eclipse.egit.ui.team.ShowHistory
 nnoremap <Leader>gl :showHistory<CR>
-
-eclipseaction compareWithHead org.eclipse.egit.ui.team.CompareWithHead
-nnoremap <Leader>gd :compareWithHead<CR>
 
 eclipseaction replaceWithHead org.eclipse.egit.ui.team.ReplaceWithHead
 nnoremap <Leader>gR :replaceWithHead<CR>
