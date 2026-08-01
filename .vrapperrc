@@ -122,7 +122,6 @@ eclipseuiaction tooltip org.eclipse.ui.edit.text.showInformation
 nnoremap K :tooltip<CR>
 
 eclipseuiaction quickSwitchEditor org.eclipse.ui.window.openEditorDropDown
-"nnoremap <Leader>l :quickSwitchEditor<CR>
 nnoremap <Leader>, :quickSwitchEditor<CR>
 nnoremap <Leader>fb :quickSwitchEditor<CR>
 
@@ -164,7 +163,7 @@ vnoremap <Leader>sw :performTextSearch<CR>
 
 eclipseuiaction outline org.eclipse.jdt.ui.edit.text.java.show.outline
 nnoremap <Leader>ss :outline<CR>
-nnoremap gs :outline<CR> "Not working, why?
+"nnoremap gs :outline<CR> Not working, why?
 nnoremap go :outline<CR>
 
 eclipseaction contentOutline org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ContentOutline)
@@ -173,9 +172,11 @@ nnoremap <Leader>sS :contentOutline<CR>
 eclipseuiaction keyAssist org.eclipse.ui.window.showKeyAssist
 nnoremap <Leader>sk :keyAssist<CR>
 
-eclipseuiaction quickAccess org.eclipse.ui.window.quickAccess
-nnoremap <Leader>sc :quickAccess<CR> "C-3
+" C-3
+eclipseuiaction findAction org.eclipse.ui.window.quickAccess
+nnoremap <Leader>sc :findAction<CR>
 
+" C-1
 eclipseuiaction quickFix org.eclipse.jdt.ui.edit.text.java.correction.assist.proposals
 nnoremap <Leader>ca :quickFix<CR>
 nnoremap <Leader>cA :quickFix<CR>
@@ -207,6 +208,8 @@ nnoremap gy :openType<CR>
 eclipseaction paramHints org.eclipse.ui.edit.text.contentAssist.contextInformation
 nnoremap gK :paramHints<CR>
 
+" Vrapper lacks a timeoutlen setting
+" Below interfere with subword mapping: <Leader>b
 nnoremap <Leader>bb <C-6>
 
 eclipseaction close org.eclipse.ui.file.close
@@ -221,7 +224,6 @@ nnoremap <Leader>bE :closeAll<CR>
 
 eclipseaction pinEditor org.eclipse.ui.window.pinEditor
 nnoremap <Leader>bp :pinEditor<CR>
-nnoremap <Leader>bP :pinEditor<CR>
 
 eclipseaction gitExplorer org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.GitRepositoryExploring)
 nnoremap <Leader>gg :gitExplorer<CR>
@@ -238,8 +240,10 @@ nnoremap <Leader>gl :showHistory<CR>
 eclipseaction replaceWithHead org.eclipse.egit.ui.team.ReplaceWithHead
 nnoremap <Leader>gR :replaceWithHead<CR>
 
+" Vrapper lacks a timeoutlen setting
+" Below interfere with subword mapping: <Leader>w
 eclipseaction maximize org.eclipse.ui.window.maximizePart
-nnoremap <Leader>wm :maximize<CR>
+"nnoremap <Leader>wm :maximize<CR>
 
 eclipseaction wordWrap org.eclipse.ui.edit.text.toggleWordWrap
 nnoremap <Leader>uw :wordWrap<CR>
@@ -251,25 +255,24 @@ nnoremap <Leader>uz :fullscreen<CR>
 nmap s <Plug>(sneak_s)
 nmap S <Plug>(sneak_S)
 nmap ; <Plug>(sneak-next)
-"nmap \ <Plug>(sneak-prev)
 nmap , <Plug>(sneak-prev)
+"nmap \ <Plug>(sneak-prev)
 vmap s <Plug>(sneak_s)
 vmap Z <Plug>(sneak_S)
 vmap ; <Plug>(sneak-next)
-"vmap \ <Plug>(sneak-prev)
 vmap , <Plug>(sneak-prev)
-nmap f <Plug>(sneak_f)
-nmap F <Plug>(sneak_F)
-nmap t <Plug>(sneak_t)
-nmap T <Plug>(sneak_T)
-vmap f <Plug>(sneak_f)
-vmap F <Plug>(sneak_F)
-vmap t <Plug>(sneak_t)
-vmap T <Plug>(sneak_T)
+"vmap \ <Plug>(sneak-prev)
+"nmap f <Plug>(sneak_f)
+"nmap F <Plug>(sneak_F)
+"nmap t <Plug>(sneak_t)
+"nmap T <Plug>(sneak_T)
+"vmap f <Plug>(sneak_f)
+"vmap F <Plug>(sneak_F)
+"vmap t <Plug>(sneak_t)
+"vmap T <Plug>(sneak_T)
 omap z <Plug>(sneak_s)
 omap Z <Plug>(sneak_S)
 
-"Eclipse key bindings
-"C-/ Show View Terminal
-"]c Select Next Change (Compare)
-"[c Select Prev Change (Compare)
+" Eclipse key bindings:
+" C-/ Show View Terminal
+
