@@ -132,6 +132,9 @@ function! PackInit() abort
   call minpac#add('tommcdo/vim-exchange')
   call minpac#add('justinmk/vim-ipmotion')
   call minpac#add('bkad/CamelCaseMotion')
+  call minpac#add('michaeljsmith/vim-indent-object')
+  call minpac#add('kana/vim-textobj-user')
+  call minpac#add('kana/vim-textobj-line')
   call minpac#add('Chromosore/vim-inkpot-refilled')
 endfunction
 

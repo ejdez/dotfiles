@@ -126,11 +126,12 @@ nnoremap <Leader>, :quickSwitchEditor<CR>
 nnoremap <Leader>fb :quickSwitchEditor<CR>
 
 eclipseuiaction openResource org.eclipse.ui.navigate.openResource
-nnoremap <Leader><Leader> :openResource<CR>
 nnoremap <Leader>ff :openResource<CR>
+nnoremap <Leader><Leader> :openResource<CR>
 
 eclipseuiaction openType org.eclipse.jdt.ui.navigate.open.type
 nnoremap <Leader>fy :openType<CR>
+nnoremap <Leader>y :openType<CR>
 
 eclipseuiaction newWizard org.eclipse.ui.newWizard
 nnoremap <Leader>fn :newWizard<CR>
@@ -148,7 +149,7 @@ eclipseaction projectExplorer org.eclipse.ui.views.showView(org.eclipse.ui.views
 nnoremap <Leader>E :projectExplorer<CR>
 
 eclipseaction textSearch org.eclipse.search.ui.openFileSearchPage
-eclipseaction searchDialog org.eclipse.search.ui.openSearchDialog
+"eclipseaction searchDialog org.eclipse.search.ui.openSearchDialog
 nnoremap <Leader>/ :textSearch<CR>
 vnoremap <Leader>/ :textSearch<CR>
 nnoremap <Leader>sg :textSearch<CR>
@@ -163,7 +164,7 @@ vnoremap <Leader>sw :performTextSearch<CR>
 
 eclipseuiaction outline org.eclipse.jdt.ui.edit.text.java.show.outline
 nnoremap <Leader>ss :outline<CR>
-"nnoremap gs :outline<CR> Not working, why?
+nnoremap gs :outline<CR>
 nnoremap go :outline<CR>
 
 eclipseaction contentOutline org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ContentOutline)
@@ -182,12 +183,10 @@ nnoremap <Leader>ca :quickFix<CR>
 nnoremap <Leader>cA :quickFix<CR>
 nnoremap g. :quickFix<CR>
 
-"eclipseaction format org.eclipse.jdt.ui.edit.text.java.quick.format
-"vmap <Leader>q :format<CR>
-"nnoremap <Leader>q :fm<CR>
-"vnoremap <Leader>q :fm<CR>
+"eclipseaction format org.eclipse.jdt.ui.edit.text.java.format
+eclipseaction formatElement org.eclipse.jdt.ui.edit.text.java.quick.format
 nnoremap <Leader>cf :fm<CR>
-vnoremap <Leader>cf :fm<CR>
+vnoremap <Leader>cf :formatElement<CR>
 
 eclipseaction imports org.eclipse.jdt.ui.edit.text.java.organize.imports
 nnoremap <Leader>co :imports<CR>
@@ -203,8 +202,6 @@ nnoremap gr :references<CR>
 eclipseuiaction typeHierarchy org.eclipse.jdt.ui.edit.text.java.open.hierarchy
 nnoremap gI :typeHierarchy<CR>
 
-nnoremap gy :openType<CR>
-
 eclipseaction paramHints org.eclipse.ui.edit.text.contentAssist.contextInformation
 nnoremap gK :paramHints<CR>
 
@@ -212,9 +209,9 @@ nnoremap gK :paramHints<CR>
 " Below interfere with subword mapping: <Leader>b
 nnoremap <Leader>bb <C-6>
 
-eclipseaction close org.eclipse.ui.file.close
-nnoremap <Leader>bd :close<CR>
-"nnoremap <Leader>bd <C-w>q
+"eclipseaction close org.eclipse.ui.file.close
+"nnoremap <Leader>bd :close<CR>
+nnoremap <Leader>bd <C-w>q
 
 eclipseaction closeOthers org.eclipse.ui.file.closeOthers
 nnoremap <Leader>bo :closeOthers<CR>
@@ -225,7 +222,7 @@ nnoremap <Leader>bE :closeAll<CR>
 eclipseaction pinEditor org.eclipse.ui.window.pinEditor
 nnoremap <Leader>bp :pinEditor<CR>
 
-eclipseaction gitExplorer org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.GitRepositoryExploring)
+eclipseaction gitExplorer org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.egit.ui.GitRepositoryExploring)
 nnoremap <Leader>gg :gitExplorer<CR>
 
 eclipseaction teamSync org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.team.ui.TeamSynchronizingPerspective)
@@ -250,6 +247,9 @@ nnoremap <Leader>uw :wordWrap<CR>
 
 eclipseaction fullscreen org.eclipse.ui.window.fullscreenmode
 nnoremap <Leader>uz :fullscreen<CR>
+
+eclipseaction refactorMenu org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu
+nnoremap <Leader>r :refactorMenu<CR>
 
 " Sneak
 nmap s <Plug>(sneak_s)
